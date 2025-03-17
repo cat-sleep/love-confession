@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱的告白</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <!-- 登录界面 -->
+    <div class="login-container" id="loginContainer">
+        <div class="login-form">
+            <h2>请登录</h2>
+            <input type="text" id="username" placeholder="用户名">
+            <input type="password" id="password" placeholder="密码">
+            <button onclick="login()">登录</button>
+        </div>
+    </div>
+
+    <!-- 主页面 -->
+    <div class="container" id="mainContainer">
+        <div class="heart"></div>
+        <div class="anime-container">
+            <div class="anime-character boy"></div>
+            <div class="anime-character girl"></div>
+        </div>
+        <div class="message">你愿意把第一次机会留给我吗？</div>
+        <div class="chances">剩余机会：5次</div>
+        <div class="buttons">
+            <button class="btn btn-yes">同意</button>
+            <button class="btn btn-no">拒绝</button>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

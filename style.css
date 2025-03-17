@@ -1,0 +1,445 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Microsoft YaHei', sans-serif;
+    background: linear-gradient(45deg, rgba(255, 105, 180, 0.7), rgba(255, 20, 147, 0.7));
+    overflow: hidden;
+}
+
+/* 登录页面样式 */
+.login-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.login-form {
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transform: translateY(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: formAppear 0.5s ease-out;
+}
+
+.login-form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes formAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-form input {
+    display: block;
+    width: 250px;
+    padding: 12px;
+    margin: 15px 0;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.login-form input:focus {
+    border-color: #ff1493;
+    box-shadow: 0 0 0 3px rgba(255, 20, 147, 0.1);
+}
+
+.login-form button {
+    background: #ff1493;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* 主页面样式 */
+.container {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    display: none;
+}
+
+.heart {
+    position: relative;
+    width: 100px;
+    height: 90px;
+    margin: 30px auto;
+    animation: heartbeat 1.2s infinite;
+    transition: all 0.5s ease;
+}
+
+.heart:before,
+.heart:after {
+    position: absolute;
+    content: "";
+    left: 50px;
+    top: 0;
+    width: 50px;
+    height: 80px;
+    background: #fff;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+    transition: background-color 0.5s ease;
+}
+
+.heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+.heart-broken {
+    animation: none !important;
+}
+
+.heart-broken:before {
+    animation: heartBreakLeft 1s forwards;
+}
+
+.heart-broken:after {
+    animation: heartBreakRight 1s forwards;
+}
+
+.heart-filled:before,
+.heart-filled:after {
+    background: #ff1493;
+    animation: fillHeart 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* 星星动画 */
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: pink;
+    border-radius: 50%;
+    animation: starfall linear infinite;
+}
+
+/* 雪花动画 */
+.snowflake {
+    position: absolute;
+    color: white;
+    font-size: 20px;
+    animation: snowfall linear infinite;
+}
+
+/* 动漫人物动画容器 */
+.anime-container {
+    width: 200px;
+    height: 150px;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.anime-character {
+    width: 150px;
+    height: 150px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: opacity 0.5s ease;
+}
+
+.single-character {
+    background-image: url('./7.png');
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: slideInRight 1s forwards;
+}
+
+.couple-character {
+    background-image: url('./hug.png');
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: slideInLeft 1s ease-out forwards;
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 12px 35px;
+    margin: 0 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.btn:active::after {
+    animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+}
+
+.btn-yes {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-no {
+    background-color: #f44336;
+    color: white;
+    position: relative;
+}
+
+.message {
+    color: white;
+    font-size: 24px;
+    margin: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* 动画关键帧 */
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.25) rotate(1deg);
+    }
+
+    30% {
+        transform: scale(1) rotate(-1deg);
+    }
+
+    45% {
+        transform: scale(1.25) rotate(1deg);
+    }
+
+    60% {
+        transform: scale(1) rotate(-1deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0);
+    }
+}
+
+@keyframes heartBreakLeft {
+    0% {
+        transform: rotate(-45deg);
+    }
+
+    100% {
+        transform: rotate(-45deg) translate(-50px, 100px) rotate(-45deg);
+        opacity: 0;
+    }
+}
+
+@keyframes heartBreakRight {
+    0% {
+        transform: rotate(45deg);
+    }
+
+    100% {
+        transform: rotate(45deg) translate(50px, 100px) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+@keyframes fillHeart {
+    0% {
+        background: #fff;
+    }
+
+    100% {
+        background: #ff1493;
+    }
+}
+
+@keyframes starfall {
+    from {
+        transform: translate(0, 0) rotate(45deg);
+        opacity: 1;
+    }
+
+    to {
+        transform: translate(200px, 200px) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+@keyframes snowfall {
+    from {
+        transform: translateY(-10vh) translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(100vh) translateX(100px);
+        opacity: 0;
+    }
+}
+
+@keyframes fallDown {
+    to {
+        transform: translateY(200vh) rotate(var(--fall-rotate));
+        opacity: 0;
+    }
+}
+
+.falling {
+    position: fixed !important;
+    animation: fallDown 2s forwards !important;
+    pointer-events: none;
+}
+
+@keyframes slideInRight {
+    0% {
+        transform: translate(100%, -50%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translate(-100%, -50%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes chase {
+    0% {
+        left: 0;
+    }
+
+    50% {
+        left: calc(100% - 100px);
+    }
+
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes beChased {
+    0% {
+        left: 50px;
+    }
+
+    50% {
+        left: calc(100% - 150px);
+    }
+
+    100% {
+        left: 50px;
+    }
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .login-form input {
+        width: 200px;
+    }
+
+    .anime-container {
+        width: 250px;
+        height: 150px;
+    }
+
+    .message {
+        font-size: 20px;
+    }
+
+    .btn {
+        padding: 8px 20px;
+        font-size: 16px;
+    }
+}
